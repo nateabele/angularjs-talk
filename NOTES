@@ -1,0 +1,36 @@
+- Intro
+- Thank You
+- Life Lessons
+- Why Angular?
+- Libraries
+- Architecture
+- Practices
+	- File Structure
+	- UI == separate app
+	- Controllers
+	- Models vs. Services
+- Tools
+	- Batarang
+- UoR
+	- HTTP Auth
+	- File
+	- Canvas
+	- Model
+- AngularUI
+	- Bootstrap
+		- Carousel
+		- Accordion
+		- Modal
+		- Alert
+		- Pagination
+		- Date/Timepicker
+		- Popover/Progressbar
+		- http://angular-ui.github.io/bootstrap
+	- UI Router
+		- State Machine
+		- Sample App
+		- State Tree
+		- [Code]
+		- Future
+			- Typed Parameters
+			- Transitions

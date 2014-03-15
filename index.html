@@ -11,9 +11,32 @@
 
 		<link rel="stylesheet" href="css/reveal.min.css">
 		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<style>
+			code {
+				font-size: 120% !important;
+			}
+      .reveal pre {
+        width: 100%;
+      }
+
+      .reveal .pre-override {
+        font-size: inherit;
+        box-shadow: none;
+        line-height: 150%;
+        width: 65%;
+      }
+
+      .reveal h3 {
+        line-height: 125%;
+      }
+
+      .reveal h3 tt {
+        font-size: 110% !important;
+      }
+		</style>
 
 		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
 		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
 		<script>
@@ -37,156 +60,601 @@
       </section>
 
       <section>
-        <h1>Me<br /><br /></h1>
+        <section>
+          <h2>Introductories</h2>
+        </section>
+
+        <section>
+          <h1>Me<br /><br /></h1>
+
+          <ul>
+            <li>Nate Abele</li>
+            <li>Former lead developer, CakePHP</li>
+            <li>Founder &amp; current lead developer, Lithium</li>
+            <li>Member, AngularUI</li>
+            <li><a href="http://twitter.com/nateabele">@nateabele</a></li>
+            <li>
+              <a href="http://unionofrad.com/nateabele">UnionOfRAD.com</a>,
+              <a href="http://unionofrad.com/radify">@radify</a>
+            </li>
+          </ul>
+          
+          <aside class="notes">
+            Thanks for having me, it's an honor to be here.
+          </aside>
+        </section>
+
+        <section>
+          <h3>Thanks!</h3>
+          <ul>
+            <li class="fragment">Amazingly, I get paid for this stuff</li>
+            <li class="fragment">OS is magical because of people</li>
+            <li class="fragment">I'm not a peasant</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Life Lessons</h2>
+        </section>
+
+        <section>
+          <section>
+            <ul>
+              <li class="fragment">Be humble</li>
+              <li class="fragment">Don't be afraid to feel stupid</li>
+              <li class="fragment">The night is young</li>
+            </ul>
+          </section>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>AngularJS?</h1>
+        </section>
+  
+        <section>
+          <ul>
+            <li>Two-way data binding</li>
+            <li>Live HTML templating</li>
+            <li>Dependency injection</li>
+            <li>Module system</li>
+          </ul>
+        </section>
+
+        <section>
+          <ul>
+            <li>Ajax</li>
+            <li>Animation</li>
+            <li>Caching</li>
+            <li>Contextual Escaping&nbsp;&nbsp;&nbsp;</li>
+            <li>Events</li>
+          </ul><ul>
+            <li>Exceptions</li>
+            <li>Localization</li>
+            <li>Logging</li>
+            <li>Promises</li>
+            <li>Touch</li>
+          </ul>
+        </section>
+
+        <section>
+          <ul>
+            <li>Complete reversal of perspective</li>
+            <li>Lots of new terms!</li>
+          </ul>
+        </section>
+
+        <section>
+          <ul>
+            <li>Controllers&nbsp;&nbsp;&nbsp;</li>
+            <li>Directives</li>
+            <li>Providers</li>
+           </ul><ul>
+            <li>Services</li>
+            <li>Factories</li>
+            <li>Filters</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Controllers</h3><br />
+          <tt>function($scope) {}</tt>
+        </section>
+
+        <section>
+          <h3>Directives</h3><br />
+          <tt>function(elem) { elem.click(...); }</tt>
+        </section>
+
+        <section>
+          <h3>Providers, Services &amp; Factories</h3><br /><br />
+          <h4>Different names for the same thing</h4>
+        </section>
+
+        <section>
+          <h3>Filters</h3><br /><br />
+          <tt><span ng-non-bindable>{{ 500 | currency }}</span> == {{ 500 | currency }}</tt>
+        </section>
+
+        <section>
+          <h3>Filters</h3>
+          <h4>(secretly just a service)</h4><br />
+          <tt>$filter('currency')(500)</tt>
+        </section>
+
+        <section>
+          <h3>Filters</h3>
+          <h4>(secretly just a service)</h4><br />
+          <ul style="list-style-type: none;">
+            <li><tt>$filter('filter')(posts, {<br />&nbsp;&nbsp;archived: true<br />})</tt></li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Filters</h3>
+          <h4>(secretly just a service)</h4><br />
+          <ul style="list-style-type: none; font-size: 80% !important;">
+            <li><tt ng-non-bindable>&lt;div ng-repeat="posts | { archived: true }"&gt;</tt></li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Practices</h1>
+        </section>
+
+        <section>
+          <img src="img/dogma-quote.jpg" />
+        </section>
+
+        <section>
+          <h4>This file structure...</h4>
+          <ul>
+            <li>/js
+              <ul>
+                <li>directives.js</li>
+                <li>controllers.js</li>
+                <li>services.js</li>
+                <li>...</li>
+              </ul>
+            </li>
+          </ul>
+          <br /><br />
+          <h3 class="fragment">...is dumb.</h3>
+        </section>
+
+        <section>
+          <h2>UI == App</h2>
+        </section>
+
+        <section>
+          <h3>Controllers: Small/Nonreusable</h3>
+        </section>
+
+        <section>
+          <h3>Models</h3>
+          <ul>
+            <li>Domain Objects</li>
+            <li>Data only</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Services</h3>
+          <ul>
+            <li>Object coordination</li>
+            <li>Transactions</li>
+          </ul>
+        </section>
+      </section>
+
+
+      <section>
+        <section>
+          <h1>Tools</h1>
+        </section>
+
+        <section>
+          <h3>Yeoman, Bower &amp; Friends</h3>
+        </section>
+
+        <section>
+          <h4>Meh.</h4>
+        </section>
+
+        <section>
+          <h2>Batarang!</h2>
+        </section>
+
+        <section>
+          <img src="img/inspect.png" />
+        </section>
+
+        <section>
+          <img src="img/models.png" />
+        </section>
+
+        <section>
+          <img src="img/depends.png" />
+        </section>
+
+        <section>
+          <img src="img/perf.png" />
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Libraries</h1>
+        </section>
+
+        <section>
+          <h1>UoR</h1>
+        </section>
+
+        <section>
+          <h2><a href="https://github.com/uor/angular-file">uor/angular-file</a></h2>
+        </section>
+
+        <section>
+          <pre><code class="html" data-trim ng-non-bindable>
+&lt;div ng-controller="FileController">
+  &lt;input
+    type="file"
+    ng-model="model.file"
+    change="upload(model)"
+  />
+&lt;/div>
+</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="html" data-trim ng-non-bindable>
+function FileController($scope, $resource) {
+    var Files = $resource('/files/:id', { id: "@id" });
+    angular.extend($scope, {
+        model: { file: null },
+        upload: function(model) {
+            Files.prototype.$save.call(model.file, function() {
+                // Handle server response
+            });
+        }
+    });
+});
+</code></pre>
+        </section>
+
+        <section>
+          <h2><a href="https://github.com/uor/angular-canvas">uor/angular-canvas</a></h2>
+        </section>      
+
+        <section>
+          <pre><code class="html" data-trim ng-non-bindable>
+&lt;image-editor
+  fit="none"
+  drop-target
+  over-class="drop-active"
+  ng-class="$ui.state()"
+  drop="$ui.state('loading')"
+  load="$ui.state('editing')"
+  ng-model="user.avatar"
+>&lt;/image-editor>
+</code></pre>
+        </section>
+
+        <section>
+          <h2><a href="https://github.com/uor/angular-http-auth">uor/angular-http-auth</a></h2>
+        </section>
+
+        <section>
+          <pre><code class="js" data-trim>
+function LoginController($scope, httpAuth, requestQueue) {
+  angular.extend($scope, {
+    login: function() {
+      httpAuth.basic({
+        username: "nate",
+        password: "foobar"
+      });
+      requestQueue.flush();
+    }
+  });
+}
+</code></pre>
+        </section>
+
+        <section>
+          <h2><a href="https://github.com/uor/angular-model">uor/angular-model</a></h2>
+        </section>
+
+        <section>
+          <pre><code class="html" data-trim ng-non-bindable>
+&lt;link rel="resource" name="Users" href="http://my.api/users" />
+</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js" data-trim ng-non-bindable>
+modelProvider.model('Users', {
+  $instance: {
+    avatar: function() {
+      return this.$links.avatar || '/img/avatar.png';
+    }
+  },
+  /* ... */
+});
+
+// &lt;img ng-src="{{ user.avatar() }}" />
+</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="js" data-trim data-trim ng-non-bindable>
+modelProvider.model('Users', {
+  /* ... */
+  $class: {
+    active: function() {
+      return this.all({ active: true })
+    }
+  }
+});
+
+// model('Users').active().then(function(result) { /* ... */ })
+</code></pre>
+        </section>
+
+        <section>
+          <ul>
+            <li>Promise-based</li>
+            <li>Binds domain logic to API URLs</li>
+            <li>Smart PATCH requests</li>
+            <li>Smart error handling</li>
+            <li>(Almost) Hypermedia-compliant</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>Future</h4>
+          <ul>
+            <li>Relationship linking and embedding</li>
+            <li>Smart read/write-through caching</li>
+            <li>Message-orientation</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>AngularUI</h1>
+        </section>
+
+        <section>
+          <ul>
+            <li>Utilities</li>
+            <li>Wrapper Modules</li>
+            <li>Standalone Modules</li>
+          </ul>
+        </section>
+
+        <section>
+          <h1>UI Bootstrap</h1>
+        </section>
+
+        <section>
+          <h2>Carousel</h2>
+          <iframe src="demo/carousel.html" width="600" height="300" scrolling="no"></iframe>
+        </section>
+
+        <section>
+          <pre><code class="js javascript" data-trim>
+function CarouselDemoController($scope) {
+  angular.extend($scope, {
+    deck: { interval: 5000, slides: [
+      { image: "../img/cats/1.jpg", text: "First"  },
+      { image: "../img/cats/2.jpg", text: "Second" },
+      { image: "../img/cats/3.jpg", text: "Third"  },
+      { image: "../img/cats/4.jpg", text: "Fourth" }
+    ]}
+  });
+}
+</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="html" data-trim ng-non-bindable>
+&lt;div ng-controller="CarouselDemoController">
+  &lt;carousel interval="deck.interval">
+    &lt;slide ng-repeat="slide in deck.slides" active="slide.active">
+      &lt;img ng-src="{{ slide.image }}" style="margin:auto;">
+      &lt;div class="carousel-caption">
+        &lt;p>{{ slide.text }}</p>
+      &lt;/div>
+    &lt;/slide>
+  &lt;/carousel>
+&lt;/div></code></pre>
+        </section>
+
+        <section>
+          <h2>Accordion</h2>
+          <iframe src="demo/accordion.html" width="600" height="600" scrolling="no"></iframe>
+        </section>
+
+        <section>
+          <pre><code class="js javascript" data-trim>
+function AccordionDemoController($scope) {
+  angular.extend($scope, {
+    cats: [
+      { image: "../img/cats/1.jpg", text: "First"  },
+      { image: "../img/cats/2.jpg", text: "Second" },
+      { image: "../img/cats/3.jpg", text: "Third"  },
+      { image: "../img/cats/4.jpg", text: "Fourth" }
+    ]
+  });
+}</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="html" data-trim ng-non-bindable>
+&lt;body ng-controller="AccordionDemoController">
+  &lt;accordion close-others="true">
+    &lt;accordion-group
+      heading="{{ cat.text }}"
+      ng-repeat="cat in cats"
+    >
+      &lt;img ng-src="{{ cat.image }}" />
+    &lt;/accordion-group>
+  &lt;/accordion>
+&lt;/body></code></pre>
+        </section>
+
+        <section>
+          <h3>Date/Timepicker</h3>
+
+          <iframe src="demo/datetime.html" width="600" height="600" scrolling="no"></iframe>
+        </section>
+
+        <section>
+          <pre><code class="js javascript" data-trim>
+function Seriously($scope) {
+  $scope.myDate = new Date();
+}
+</code></pre>
+        </section>
+
+        <section>
+          <pre><code class="html" data-trim ng-non-bindable>
+&lt;div ng-controller="Seriously">
+  &lt;div style="display:inline-block; min-height:290px;">
+    &lt;div class="well well-sm" ng-model="myDate">
+      &lt;datepicker show-weeks="false">&lt;/datepicker>
+    &lt;/div>
+  &lt;/div>
+
+  &lt;div class="well well-sm" ng-model="myDate">
+    &lt;timepicker show-meridian="true">&lt;/timepicker>
+  &lt;/div>
+&lt;/div></code></pre>
+       </section>
+
+        <section>
+          <ul>
+            <li>Alerts</li>
+            <li>Buttons</li>
+            <li>Dropdowns</li>
+            <li>Modals</li>
+            <li>Progress Bars&nbsp;&nbsp;&nbsp;</li>
+          </ul><ul>
+            <li>Pagination</li>
+            <li>Ratings</li>
+            <li>Tabs</li>
+            <li>Tooltips</li>
+            <li>Typeahead</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>http://angular-ui.github.io/bootstrap/</h4>
+        </section>
+
+        <section>
+          <h4>Others</h4>
+          <ul>
+            <li>ui-slider</li>
+            <li>ui-select</li>
+            <li>ui-sortable&nbsp;&nbsp;&nbsp;</li>
+            <li>ui-grid</li>
+          </ul><ul>
+            <li>ui-map</li>
+            <li>ui-codemirror / ui-ace</li>
+            <li>ui-layout</li>
+            <li>...</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>UI Router</h1>
+        </section>
+
+        <section>
+          <h1><img src="img/statemachine.gif" /></h1>
+        </section>
+
+        <section>
+          <ul>
+            <li>Nested states</li>
+            <li>Nested views</li>
+            <li>Hierarchical URL routes</li>
+            <li>Animated transitions</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>[Insert UI Router Demo Here]</h3>
+        </section>
+
+        <section>
+          <h1><img src="img/states.png" /></h1>
+        </section>
+
+        <section>
+          <h3>Future</h3>
+
+          <ul>
+            <li>Typed Parameters</li>
+            <li>Rich Transition</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>[Insert App Demo Here]</h3>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h1>Performance</h1>
+        </section>
+
+        <section>
+          <tt>ng-bind-once</tt>
+        </section>
+
+        <section>
+          <tt>$rootScope.foo = "badness";</tt>
+        </section>
+
+        <section>
+          <tt>$rootScope.$on("badness", perfHit);</tt>
+        </section>
+
+        <section>
+          <tt><pre class="pre-override">&lt;div
+  class="section4 fill"
+  ng-if="!isInViewport"
+>&lt;/div></pre></tt>
+        </section>
+
+        <section>
+          <h3>
+            Custom directives
+            <br />+ Event delegation
+            <br />(+ <tt>$watchCollection</tt>)
+          </h3>
+        </section>
+      </section>
+
+      <section>
+        <h1>Questions?</h1>
+      </section>
+
+      <section>
+        <h3>Thanks/Contact</h3>
 
         <ul>
-          <li>Nate Abele</li>
-          <li>Former lead developer, CakePHP</li>
-          <li>Founder &amp; current lead developer, Lithium</li>
-          <li>Member, AngularUI</li>
           <li><a href="http://twitter.com/nateabele">@nateabele</a></li>
+          <li><a href="mailto:nate@unionofrad.com">nate@unionofrad.com</a></li>
         </ul>
-        
-        <aside class="notes">
-          Thanks for having me, it's an honor to be here.
-        </aside>
-      </section>
-
-      <section>
-        <h1>AngularJS?</h1>
-      </section>
-
-      <section>
-        <ul>
-          <li>Two-way data binding</li>
-          <li>Live HTML templating</li>
-          <li>Dependency injection</li>
-          <li>Module system</li>
-        </ul>
-      </section>
-
-      <section>
-        <ul>
-          <li>Complete reversal of perspective</li>
-          <li>Lots of new terms!</li>
-        </ul>
-      </section>
-
-      <section>
-        <ul>
-          <li>Controllers</li>
-          <li>Directives</li>
-          <li>Providers</li>
-          <li>Services</li>
-          <li>Factories</li>
-          <li>Filters</li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>Controllers</h3><br />
-        <tt>function($scope) {}</tt>
-      </section>
-
-      <section>
-        <h3>Directives</h3><br />
-        <tt>function(elem) { elem.click(...); }</tt>
-      </section>
-
-      <section>
-        <h3>Providers, Services &amp; Factories</h3><br /><br />
-        <h4>Different names for the same thing</h4>
-      </section>
-
-      <section>
-        <h3>Filters</h3><br /><br />
-        <tt><span ng-non-bindable>{{ 500 | currency }}</span> == {{ 500 | currency }}</tt>
-      </section>
-
-      <section>
-        <h3>Filters</h3>
-        <h4>(secretly just a service)</h4><br />
-        <tt>$filter('currency')(500)</tt>
-      </section>
-
-      <section>
-        <h3>Filters</h3>
-        <h4>(secretly just a service)</h4><br />
-        <ul style="list-style-type: none;">
-          <li><tt>$filter('filter')(posts, {<br />&nbsp;&nbsp;archived: true<br />})</tt></li>
-        </ul>
-      </section>
-
-      <section>
-        <h3>Filters</h3>
-        <h4>(secretly just a service)</h4><br />
-        <ul style="list-style-type: none; font-size: 80% !important;">
-          <li><tt ng-non-bindable>&lt;div ng-repeat="posts | { archived: true }"&gt;</tt></li>
-        </ul>
-      </section>
-
-      <section>
-        <h1>Tools</h1>
-      </section>
-
-      <section>
-        <h3>Yeoman, Bower &amp; Friends</h3>
-      </section>
-
-      <section>
-        <h4>Meh.</h4>
-      </section>
-
-      <section>
-        <h2>Batarang!</h2>
-      </section>
-
-      <section>
-        <img src="img/inspect.png" />
-      </section>
-
-      <section>
-        <img src="img/models.png" />
-      </section>
-
-      <section>
-        <img src="img/depends.png" />
-      </section>
-
-      <section>
-        <img src="img/perf.png" />
-      </section>
-
-      <section>
-        <h1>AngularUI</h1>
-      </section>
-
-      <section>
-        <ul>
-          <li>Utilities</li>
-          <li>Wrapper Modules</li>
-          <li>Standalone Modules</li>
-        </ul>
-      </section>
-
-      <section>
-        <h1>UI Bootstrap</h1>
-      </section>
-
-      <section>
-        <h1>UI Router</h1>
-      </section>
-
-      <section>
-        <h1><img src="img/states.png" ></h1>
-      </section>
-
-      <section>
-        <h1>Demo Time!</h1>
-      </section>
-
-      <section>
-        <h1>¿Preguntas?</h1>
       </section>
     </div>
 
