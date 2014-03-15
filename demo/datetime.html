@@ -1,0 +1,28 @@
+<!doctype html>
+<html ng-app="demo">
+  <head>
+    <script src="../js/angular.js"></script>
+    <script src="../js/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script>
+    angular.module('demo', ['ui.bootstrap']);
+
+      function Seriously($scope) {
+        $scope.myDate = new Date();
+      }
+    </script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div ng-controller="Seriously">
+      <div style="display:inline-block; min-height:290px;">
+        <div class="well well-sm" ng-model="myDate">
+          <datepicker show-weeks="false"></datepicker>
+        </div>
+      </div>
+
+      <div class="well well-sm" ng-model="myDate">
+        <timepicker show-meridian="true"></timepicker>
+      </div>
+    </div>
+  </body>
+</html>

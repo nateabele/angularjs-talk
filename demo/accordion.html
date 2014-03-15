@@ -1,0 +1,29 @@
+<!doctype html>
+<html ng-app="demo">
+  <head>
+    <script src="../js/angular.js"></script>
+    <script src="../js/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script>
+    angular.module('demo', ['ui.bootstrap']);
+
+      function AccordionDemoController($scope) {
+        angular.extend($scope, {
+          cats: [
+            { image: "../img/cats/1.jpg", text: "First"  },
+            { image: "../img/cats/2.jpg", text: "Second" },
+            { image: "../img/cats/3.jpg", text: "Third"  },
+            { image: "../img/cats/4.jpg", text: "Fourth" }
+          ]
+        });
+      }
+    </script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  </head>
+  <body ng-controller="AccordionDemoController">
+    <accordion close-others="true">
+      <accordion-group heading="{{ cat.text }}" ng-repeat="cat in cats">
+        <img ng-src="{{ cat.image }}" />
+      </accordion-group>
+    </accordion>
+  </body>
+</html>
